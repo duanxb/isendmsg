@@ -3,7 +3,7 @@
 * version: 1.1.0
 * Requires jQuery v2.0 or later
 * Copyright 2017 Abao
-* Project repository: https://github.com/jquery-form/form
+* Project repository: https://github.com/duanxb/isendmsg
 */
 ;(function (factory) {
     if (typeof define === "function" && define.amd) {
