@@ -31,13 +31,14 @@ IsendMsg is mainly composed of functions:
 
 | 参数        	| 说明           |
 | ------------- |-------------|
-| phoneId      	| ID of the fill input of the mobile. **Required** |
-| url     		| Send message Api **Required** |      |
-| timeOut 		| Send the countdown after the success of the default 60S. **Optional**      | 
-| countText		| After sending successfully, the countdown button appears on the text, default: "{n} s"  **Optional**     | 
-| captcha 		| Whether to open the graphics verification code, the default does not open: false.   **Optional**   | 
-| captchaUrl	| When opening the graphics verification code, set the address of the graphic verification code.   **Optional**      | 
-| sign 			| Customizable rules Encrypted string tokens are passed to the background to prevent others from attacking the SMS interface. **Optional**      | 
+| phoneId      	| String, ID of the fill input of the mobile. **Required** |
+| url     		| String, Send message Api **Required** |      |
+| timeOut 		| Number, Send the countdown after the success of the default 60S. **Optional**      | 
+| countText		| String, After sending successfully, the countdown button appears on the text, default: "{n} s"  **Optional**     | 
+| captcha 		| Boolean, Whether to open the graphics verification code, the default does not open: false.   **Optional**   | 
+| captchaUrl	| String, When opening the graphics verification code, set the address of the graphic verification code.   **Optional**      | 
+| sign 			| String, Customizable rules Encrypted string tokens are passed to the background to prevent others from attacking the SMS interface. **Optional**      | 
+| sendDatas		| Object, When submitted to the background, a pass over the additional datas. **Optional**|
 | beforeSend	| Send a verification code before the implementation of the function, if return false, then stop sending.      | 
 | success 		| After sending successfully, execute the callback function.     | 
 | error 		| After sending a failed function, execute the callback function      | 
@@ -71,13 +72,14 @@ isendMsg主要是功能组成：
 
 | 参数        	| 说明           |
 | ------------- |-------------|
-| phoneId      	| 所属手机号码文本框的ID。 *必填* |
-| url     		| 后台发送短信的接口链接。 *必填* |      |
-| timeOut 		| 发送成功后的倒计时，默认60S。 *可选*      | 
-| countText		| 发送成功后，倒计时按钮上显示的文字，默认："{n}S"。 *可选*     | 
-| captcha 		| 是否开启图形验证码，默认不开启：false。 *可选*   | 
-| captchaUrl	| 当开启图形验证码时，设置获取图形验证码图片的地址。 *可选*      | 
-| sign 			| 可自定义规则的加密字符串令牌传到后台，用于防止别人攻击短信接口。*可选*      | 
+| phoneId      	| 字符，所属手机号码文本框的ID。 **必填** |
+| url     		| 字符，后台发送短信的接口链接。 **必填** |      |
+| timeOut 		| 数字，发送成功后的倒计时，默认60S。 **可选**      | 
+| countText		| 字符，发送成功后，倒计时按钮上显示的文字，默认："{n}S"。 **可选**     | 
+| captcha 		| 布尔值，是否开启图形验证码，默认不开启：false。 **可选**   | 
+| captchaUrl	| 字符，当开启图形验证码时，设置获取图形验证码图片的地址。 **可选**      | 
+| sign 			| 字符，可自定义规则的加密字符串令牌传到后台，用于防止别人攻击短信接口。**可选**      | 
+| sendDatas		| 对象, 当提交到后台时，一块传过去的额外数据。 **可选**|
 | beforeSend	| 发送验证码之前，执行的函数，若return false,则阻止继续发送。      | 
 | success 		| 发送成功后，执行的函数。     | 
 | error 		| 发送失败后，执行的函数。      | 

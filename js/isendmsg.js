@@ -23,6 +23,8 @@
         $params = $.extend(true, {
             timeOut: 60,
             countText: "{n}S",
+            sign:"",
+            sendDatas:{},
             captcha: false,
             captchaUrl: "",
             errorCount: 0
@@ -143,6 +145,7 @@
                     });
             }else{ 
                 $model.fadeIn(function(){ 
+                    $("#CAPTCHINPUT").val();
                     $self.captchaChange();
                 });
             }
@@ -168,6 +171,7 @@
             if($params.sign){ 
                 postData.sign = $params.sign;
             }
+            postData = $.extend(true, $params.sendDatas, postData);
             //当开启图形验证码时
             if($params.captcha){ 
                 $self.captchaModelOpen($params.captchaUrl,function(imgVerify) { 

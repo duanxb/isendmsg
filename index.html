@@ -77,25 +77,28 @@
 				<th>参数</th><th>说明</th>
 			</tr>
 			<tr>
-				<td>phoneId</td><td>所属手机号码文本框的ID <b>必填</b></td>
+				<td>phoneId</td><td>字符类型,所属手机号码文本框的ID <b>必填</b></td>
 			</tr>
 			<tr>
-				<td>url</td><td>后台发送短信的接口链接 <b>必填</b></td>
+				<td>url</td><td>字符类型,后台发送短信的接口链接 <b>必填</b></td>
 			</tr>
 			<tr>
-				<td>timeOut</td><td>发送成功后的倒计时，默认60S <b>可选</b></td>
+				<td>timeOut</td><td>数字类型,发送成功后的倒计时，默认60S <b>可选</b></td>
 			</tr>
 			<tr>
-				<td>countText</td><td>发送成功后，倒计时按钮上显示的文字，默认："{n}S" <b>可选</b></td>
+				<td>countText</td><td>字符类型,发送成功后，倒计时按钮上显示的文字，默认："{n}S" <b>可选</b></td>
 			</tr>
 			<tr>
-				<td>captcha</td><td>是否开启图形验证码，默认不开启：false <b>可选</b></td>
+				<td>captcha</td><td>布尔类型,是否开启图形验证码，默认不开启：false <b>可选</b></td>
 			</tr>
 			<tr>
-				<td>captchaUrl</td><td>当开启图形验证码时，设置获取图形验证码图片的地址 <b>可选</b></td>
+				<td>captchaUrl</td><td>字符类型,当开启图形验证码时，设置获取图形验证码图片的地址 <b>可选</b></td>
 			</tr>
 			<tr>
-				<td>sign</td><td>可自定义规则的加密字符串令牌传到后台，用于防止别人攻击短信接口。 <b>可选</b></td>
+				<td>sign</td><td>字符类型,可自定义规则的加密字符串令牌传到后台，用于防止别人攻击短信接口。 <b>可选</b></td>
+			</tr>
+			<tr>
+				<td>sendDatas</td><td>对象类型，当提交到后台时，一块传过去的额外数据。<b>可选</b></td>
 			</tr>
 			<tr>
 				<td>beforeSend</td><td>发送验证码之前，执行的函数，若return false,则阻止继续发送</td>
@@ -114,8 +117,10 @@
 			phoneId: 'phonenumber',
 			//加密字符串令牌
 			sign: "",
+			//提交到后台的额外数据
+			sendDatas:{timestamp:new Date().getTime()},
 			//倒计时时长
-			timeOut: 10,
+			timeOut: 60,
 			countText: "已发送，{n}S",
 			//后台发送地址
 			url: "json/sendmsgjson.json",
@@ -127,10 +132,10 @@
 				console.log("发送之前");
 			},
 			success: function(response) { 
-				alert(response.msg);
+				//alert(response.msg);
 			},
 			error: function(response) { 
-				alert(response.msg);
+				//alert(response.msg);
 			}
 		})
 	</script>
