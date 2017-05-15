@@ -39,6 +39,7 @@ IsendMsg is mainly composed of functions:
 | captchaUrl	| String, When opening the graphics verification code, set the address of the graphic verification code.   **Optional**      | 
 | sign 			| String, Customizable rules Encrypted string tokens are passed to the background to prevent others from attacking the SMS interface. **Optional**      | 
 | sendDatas		| Object, When submitted to the background, a pass over the additional datas. **Optional**|
+| encryptRuleQuery	| callback Function The transmitted data is processed. Param: data object.      |
 | beforeSend	| Send a verification code before the implementation of the function, if return false, then stop sending.      | 
 | success 		| After sending successfully, execute the callback function.     | 
 | error 		| After sending a failed function, execute the callback function      | 
@@ -80,6 +81,7 @@ isendMsg主要是功能组成：
 | captchaUrl	| 字符，当开启图形验证码时，设置获取图形验证码图片的地址。 **可选**      | 
 | sign 			| 字符，可自定义规则的加密字符串令牌传到后台，用于防止别人攻击短信接口。**可选**      | 
 | sendDatas		| 对象, 当提交到后台时，一块传过去的额外数据。 **可选**|
+| encryptRuleQuery	| 回调函数， 对发送的数据进行处理，param: 数据对象。      | 
 | beforeSend	| 发送验证码之前，执行的函数，若return false,则阻止继续发送。      | 
 | success 		| 发送成功后，执行的函数。     | 
 | error 		| 发送失败后，执行的函数。      | 

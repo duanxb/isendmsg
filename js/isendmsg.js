@@ -19,7 +19,6 @@
         if(!$params.phoneId){ 
             console.error("手机号码文本框ID未设置");
         }
-
         $params = $.extend(true, {
             timeOut: 60,
             countText: "{n}S",
@@ -84,7 +83,7 @@
                     return iresult;
                 },
                 success: function(data){
-                    if(data.code == 0){
+                    if(data.error_code == 0){
                         $self.init();
                         if($params.success && typeof $params.success == 'function'){ 
                             $params.success(data);
@@ -145,7 +144,7 @@
                     });
             }else{ 
                 $model.fadeIn(function(){ 
-                    $("#CAPTCHINPUT").val();
+                    $("#CAPTCHINPUT").val("");
                     $self.captchaChange();
                 });
             }
@@ -158,6 +157,12 @@
         }
         $self.captchaChange = function() { 
             $("#captchaImage").trigger('click');
+        }
+        $self.encryptRuleQuery = function(postData) { 
+            //数据加密规则处理函数
+            if($params.encryptRule && typeof $params.encryptRule == 'function'){ 
+                return $params.encryptRule(postData);
+            }
         }
         /*发送按钮绑定事件*/
         $this.on('click', function() { 
@@ -176,12 +181,18 @@
             if($params.captcha){ 
                 $self.captchaModelOpen($params.captchaUrl,function(imgVerify) { 
                     postData.verfiy = imgVerify;
-                    $self.sendAjax(postData);  
+                    postData = $self.encryptRuleQuery(postData);
+                    //Ajax发送
+                    $self.sendAjax(postData);
                 })
             }else{ 
+                postData = $self.encryptRuleQuery(postData);
                 //Ajax发送
                 $self.sendAjax(postData);
             }
+            
+
+            
             
 
         })     
