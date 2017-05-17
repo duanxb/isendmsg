@@ -64,7 +64,8 @@
                 },1000);
             }else{
                 $this.removeAttr("disabled").text("再次发送");
-                _timeout = $params.timeout;
+                _timeout = $params.timeOut;
+                console.log(_timeout);
             }
         }
 
@@ -159,10 +160,7 @@
             $("#captchaImage").trigger('click');
         }
         $self.encryptRuleQuery = function(postData) { 
-            //数据加密规则处理函数
-            if($params.encryptRule && typeof $params.encryptRule == 'function'){ 
-                return $params.encryptRule(postData);
-            }
+            return $params.encryptRule(postData);    
         }
         /*发送按钮绑定事件*/
         $this.on('click', function() { 
@@ -181,12 +179,18 @@
             if($params.captcha){ 
                 $self.captchaModelOpen($params.captchaUrl,function(imgVerify) { 
                     postData.verfiy = imgVerify;
-                    postData = $self.encryptRuleQuery(postData);
+                    //数据加密规则处理函数
+                    if($params.encryptRule && typeof $params.encryptRule == 'function'){ 
+                        postData = $self.encryptRuleQuery(postData);
+                    }
                     //Ajax发送
                     $self.sendAjax(postData);
                 })
             }else{ 
-                postData = $self.encryptRuleQuery(postData);
+                //数据加密规则处理函数
+                if($params.encryptRule && typeof $params.encryptRule == 'function'){ 
+                    postData = $self.encryptRuleQuery(postData);
+                }
                 //Ajax发送
                 $self.sendAjax(postData);
             }

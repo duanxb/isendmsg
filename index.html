@@ -123,12 +123,12 @@
 			//提交到后台的额外数据
 			sendDatas:{timestamp:new Date().getTime()},
 			//倒计时时长
-			timeOut: 60,
+			timeOut: 5,
 			countText: "已发送，{n}S",
 			//后台发送地址
 			url: "json/sendmsgjson.json",
 			//是否开启图形验证码，默认关闭
-			captcha: true,
+			captcha: false,
 			//当开启图形验证码时，设置参数
 			captchaUrl: "http://www.hr-yjyhome.com/Home/Login/verify_code",
 			beforeSend: function() { 
