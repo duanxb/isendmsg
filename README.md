@@ -1,4 +1,4 @@
-# iSendMsg - A send valid message ountdown effect plugin for Mobile
+# iSendMsg - A send valid message countdown effect plugin for Mobile
 
 * jQuery isendMsg Plugin for mobile
 * send SMS verification code plugin for mobile
